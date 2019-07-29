@@ -10,6 +10,6 @@ class ApplicationController < Sinatra::Base
 	end
 
 	post '/gossips/new/' do
-		Gossip.new.save
+		Gossip.new("super_auteur", "super gossip").save
 	end
 end

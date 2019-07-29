@@ -10,6 +10,11 @@ class ApplicationController < Sinatra::Base
 	end
 
 	post '/gossips/new/' do
-		Gossip.new("super_auteur", "super gossip").save
+		author = params["gossip_author"]
+		content = params["gossip_content"]
+
+		Gossip.new(author, content).save
+
+		redirect '/'
 	end
 end

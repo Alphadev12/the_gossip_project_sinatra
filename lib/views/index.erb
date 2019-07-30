@@ -10,16 +10,13 @@
 
     <h2>Voici tous les gossips:</h2>
 
-    <% i = 1 %>
-    <% gossips.each do |gossip| %>
+    <% gossips.each_with_index do |gossip, id| %>
         <p>
-          <a href="/gossips/<%= i %>">
+          <a href="/gossips/<%= id + 1 %>">
             <%= gossip.author %><br/>
             <%= gossip.content %>
           </a>
         </p>
-        
-        <% i = i + 1%>
     <% end %>
 
   </body>

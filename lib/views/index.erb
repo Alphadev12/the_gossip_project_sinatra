@@ -5,7 +5,16 @@
   </head>
   <body>
     <h1>Mon super site de gossip, depuis le dossier views !</h1>
-    <h3>Bienvenue à ton utilisateur en lui disant que la liste des potins arrive bientôt</h3>
+    <h3>Bienvenue, la liste des potins arrive bientôt</h3>
     <a href="/gossips/new/">Créer un nouveau potin</a>
+
+    <h2>Voici tous les gossips:</h2>
+    <% gossips.each do |gossip| %>
+        <p>
+          <%= gossip.author %><br/>
+          <%= gossip.content %>
+        </p>
+    <% end %>
+
   </body>
 </html>

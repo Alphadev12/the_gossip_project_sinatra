@@ -29,10 +29,28 @@ class Gossip
 	end
 
 	def self.find(id)
-		id = id.to_i - 1
+		id = id.to_i
 
 		data = CSV.read("./db/gossip.csv")
 
-		return data[id]
+		author = data[id][0]
+		content = data[id][1]
+
+		gossip = Gossip.new(author,content)
+
+		return gossip
+	end
+
+	def self.update(author,content,id)
+		id = id.to_i
+
+		data = CSV.read("./db/gossip.csv")
+		data[id] = [author,content]
+
+		CSV.open('./db/gossip.csv', 'w') do |csv|
+			for i in 0..data.length-1 do
+				csv << data[i]
+			end
+		end
 	end
 end

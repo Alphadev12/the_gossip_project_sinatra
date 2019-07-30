@@ -16,4 +16,8 @@ class ApplicationController < Sinatra::Base
 		Gossip.new(author, content).save
 		redirect '/'
 	end
+
+	get '/gossips/:id' do
+		"Hello #{params["id"]}"
+	end
 end

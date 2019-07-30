@@ -9,11 +9,17 @@
     <a href="/gossips/new/">Créer un nouveau potin</a>
 
     <h2>Voici tous les gossips:</h2>
+
+    <% i = 1 %>
     <% gossips.each do |gossip| %>
         <p>
-          <%= gossip.author %><br/>
-          <%= gossip.content %>
+          <a href="/gossips/<%= i %>">
+            <%= gossip.author %><br/>
+            <%= gossip.content %>
+          </a>
         </p>
+        
+        <% i = i + 1%>
     <% end %>
 
   </body>

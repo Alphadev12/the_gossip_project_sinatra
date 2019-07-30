@@ -18,6 +18,11 @@ class ApplicationController < Sinatra::Base
 	end
 
 	get '/gossips/:id' do
-		"Hello #{params["id"]}"
+		data = Gossip.find(params['id'])
+
+		author = data[0]
+		content = data[1]
+
+		erb :show, locals: {gossip: Gossip.new(author,content), id: params["id"]}
 	end
 end

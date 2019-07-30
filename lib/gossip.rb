@@ -29,6 +29,8 @@ class Gossip
 	end
 
 	def self.find(id)
+		id = id.to_i - 1
+
 		data = CSV.read("./db/gossip.csv")
 
 		return data[id]
